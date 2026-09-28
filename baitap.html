@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thư viện ảnh tương tác</title>
+  <style>
+    body { margin: 0; padding: 24px 16px 40px; font-family: Arial, Helvetica, sans-serif; background: #f5f3ee; color: #1d2b2a; line-height: 1.6; }
+    main { max-width: 900px; margin: 0 auto; }
+    h1 { font-size: 2rem; margin: 0 0 4px; }
+    h2 { font-size: 1.1rem; font-weight: normal; margin: 0 0 20px; color: #3d4f4d; }
+    #image {
+      display: flex; align-items: flex-end; justify-content: center;
+      width: 100%; aspect-ratio: 4 / 3; padding: 16px; box-sizing: border-box;
+      border: 3px solid #1d2b2a; background-color: #dfe6e4;
+      background-size: cover; background-position: center; background-repeat: no-repeat;
+      font-size: 1.1rem; text-align: center; font-weight: bold;
+    }
+    .gallery { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+    .preview {
+      width: calc(33.333% - 8px); min-width: 120px; aspect-ratio: 4 / 3;
+      object-fit: cover; border: 3px solid transparent; cursor: pointer; box-sizing: border-box;
+    }
+    .preview:hover, .preview:focus { border-color: #b4562c; outline: 3px solid #1d2b2a; outline-offset: 2px; }
+    @media (max-width: 480px) { .preview { width: calc(50% - 6px); } }
+  </style>
+</head>
+
+<body onload="addTabFocus()">
+  <main>
+    <h1>Thư viện ảnh tương tác</h1>
+    <h2>Di chuột hoặc nhấn phím Tab để xem ảnh</h2>
+
+    <div id="image">Di chuột qua hoặc nhấn Tab tới một hình bên dưới để hiển thị tại đây.</div>
+
+    <div class="gallery">
+      <img class="preview" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDkwMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnMSIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmOWE1YSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZDlhMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjkwMCIgZmlsbD0idXJsKCNnMSkiLz48Y2lyY2xlIGN4PSI2MDAiIGN5PSI1MjAiIHI9IjEyMCIgZmlsbD0iI2ZmZjNjNCIvPjxyZWN0IHk9IjU0MCIgd2lkdGg9IjEyMDAiIGhlaWdodD0iMzYwIiBmaWxsPSIjMmI2ZjhmIi8+PHJlY3QgeD0iNDAwIiB5PSI1NjAiIHdpZHRoPSI0MDAiIGhlaWdodD0iMTQiIGZpbGw9IiNmZmYzYzQiIG9wYWNpdHk9Ii42Ii8+PHJlY3QgeD0iNDUwIiB5PSI2MDAiIHdpZHRoPSIzMDAiIGhlaWdodD0iMTIiIGZpbGw9IiNmZmYzYzQiIG9wYWNpdHk9Ii41Ii8+PC9zdmc+"
+           alt="Hoàng hôn cam vàng trên mặt biển xanh"
+           onmouseover="upDate(this)" onmouseleave="unDo()"
+           onfocus="upDate(this)" onblur="unDo()">
+
+      <img class="preview" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDkwMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnMiIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzhlYzVlOCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2U4ZjRmYiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjkwMCIgZmlsbD0idXJsKCNnMikiLz48cG9seWdvbiBwb2ludHM9IjAsOTAwIDI1MCwzNTAgNTAwLDkwMCIgZmlsbD0iIzVhN2Q2YSIvPjxwb2x5Z29uIHBvaW50cz0iMzAwLDkwMCA2NTAsMjIwIDEwMDAsOTAwIiBmaWxsPSIjM2Y2MjUwIi8+PHBvbHlnb24gcG9pbnRzPSI2NTAsMjIwIDU5MCwzNDAgNzEwLDM0MCIgZmlsbD0iI2ZmZiIvPjxwb2x5Z29uIHBvaW50cz0iNzAwLDkwMCA5NTAsNDIwIDEyMDAsOTAwIiBmaWxsPSIjNWE3ZDZhIi8+PC9zdmc+"
+           alt="Dãy núi xanh với đỉnh phủ tuyết dưới bầu trời trong"
+           onmouseover="upDate(this)" onmouseleave="unDo()"
+           onfocus="upDate(this)" onblur="unDo()">
+
+      <img class="preview" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDkwMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnMyIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2NmZThkNSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y0ZmFmNSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjkwMCIgZmlsbD0idXJsKCNnMykiLz48cmVjdCB5PSI3MDAiIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzdmYWU4YiIvPjxwb2x5Z29uIHBvaW50cz0iMTUwLDQ1MCA4MCw2NzAgMjIwLDY3MCIgZmlsbD0iIzFmNWEzYSIvPjxyZWN0IHg9IjE0MCIgeT0iNjcwIiB3aWR0aD0iMjAiIGhlaWdodD0iNTAiIGZpbGw9IiM1YjNhMjEiLz48cG9seWdvbiBwb2ludHM9IjM4MCwzODAgMzEwLDYwMCA0NTAsNjAwIiBmaWxsPSIjMWY1YTNhIi8+PHJlY3QgeD0iMzcwIiB5PSI2MDAiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzViM2EyMSIvPjxwb2x5Z29uIHBvaW50cz0iNjIwLDQ3MCA1NTAsNjkwIDY5MCw2OTAiIGZpbGw9IiMxZjVhM2EiLz48cmVjdCB4PSI2MTAiIHk9IjY5MCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjNWIzYTIxIi8+PHBvbHlnb24gcG9pbnRzPSI4NTAsNDAwIDc4MCw2MjAgOTIwLDYyMCIgZmlsbD0iIzFmNWEzYSIvPjxyZWN0IHg9Ijg0MCIgeT0iNjIwIiB3aWR0aD0iMjAiIGhlaWdodD0iNTAiIGZpbGw9IiM1YjNhMjEiLz48cG9seWdvbiBwb2ludHM9IjEwNjAsNDYwIDk5MCw2ODAgMTEzMCw2ODAiIGZpbGw9IiMxZjVhM2EiLz48cmVjdCB4PSIxMDUwIiB5PSI2ODAiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzViM2EyMSIvPjwvc3ZnPg=="
+           alt="Hàng cây thông xanh đứng trên bãi cỏ"
+           onmouseover="upDate(this)" onmouseleave="unDo()"
+           onfocus="upDate(this)" onblur="unDo()">
+
+      <img class="preview" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDkwMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnNCIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzBiMTAzMCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzJjM2E3YSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjkwMCIgZmlsbD0idXJsKCNnNCkiLz48Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMDAiIHI9IjQiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIzMDAiIGN5PSIyMjAiIHI9IjQiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSI1MjAiIGN5PSI5MCIgcj0iNCIgZmlsbD0iI2ZmZiIvPjxjaXJjbGUgY3g9Ijc2MCIgY3k9IjE4MCIgcj0iNCIgZmlsbD0iI2ZmZiIvPjxjaXJjbGUgY3g9Ijk4MCIgY3k9IjExMCIgcj0iNCIgZmlsbD0iI2ZmZiIvPjxjaXJjbGUgY3g9IjExMDAiIGN5PSIyNjAiIHI9IjQiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIzODAiIHI9IjQiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSI4ODAiIGN5PSIzMzAiIHI9IjQiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSI5MDAiIGN5PSIyMDAiIHI9IjgwIiBmaWxsPSIjZmRmNmQ4Ii8+PHJlY3QgeT0iNzIwIiB3aWR0aD0iMTIwMCIgaGVpZ2h0PSIxODAiIGZpbGw9IiMwZTFhMmIiLz48L3N2Zz4="
+           alt="Bầu trời đêm đầy sao với vầng trăng sáng"
+           onmouseover="upDate(this)" onmouseleave="unDo()"
+           onfocus="upDate(this)" onblur="unDo()">
+
+      <img class="preview" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDkwMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnNSIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZTJhOCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZjRkNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjkwMCIgZmlsbD0idXJsKCNnNSkiLz48Y2lyY2xlIGN4PSI5NTAiIGN5PSIyMDAiIHI9IjkwIiBmaWxsPSIjZmZiMzQ3Ii8+PHBhdGggZD0iTTAgNzAwIFEzMDAgNTAwIDYwMCA2ODAgVDEyMDAgNjQwIFY5MDAgSDBaIiBmaWxsPSIjZTBhNDU4Ii8+PHBhdGggZD0iTTAgODIwIFE0MDAgNjUwIDgwMCA4MDAgVDEyMDAgNzgwIFY5MDAgSDBaIiBmaWxsPSIjYzk4YTNjIi8+PC9zdmc+"
+           alt="Những đụn cát vàng dưới ánh nắng sa mạc"
+           onmouseover="upDate(this)" onmouseleave="unDo()"
+           onfocus="upDate(this)" onblur="unDo()">
+
+      <img class="preview" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDkwMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnNiIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2Y2YTVjMCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZkZTdjOCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjkwMCIgZmlsbD0idXJsKCNnNikiLz48cmVjdCB4PSI4MCIgeT0iNDIwIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjQ4MCIgZmlsbD0iIzJkM2E1MiIvPjxyZWN0IHg9IjI0MCIgeT0iMzAwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzNhNGE2OCIvPjxyZWN0IHg9IjM4MCIgeT0iNDgwIiB3aWR0aD0iMTUwIiBoZWlnaHQ9IjQyMCIgZmlsbD0iIzJkM2E1MiIvPjxyZWN0IHg9IjU1MCIgeT0iMjUwIiB3aWR0aD0iMTMwIiBoZWlnaHQ9IjY1MCIgZmlsbD0iIzNhNGE2OCIvPjxyZWN0IHg9IjcwMCIgeT0iNDAwIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzJkM2E1MiIvPjxyZWN0IHg9Ijg2MCIgeT0iMzMwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjU3MCIgZmlsbD0iIzNhNGE2OCIvPjxyZWN0IHg9IjEwMDAiIHk9IjQ2MCIgd2lkdGg9IjE1MCIgaGVpZ2h0PSI0NDAiIGZpbGw9IiMyZDNhNTIiLz48L3N2Zz4="
+           alt="Đường chân trời thành phố với các tòa nhà cao lúc chiều tà"
+           onmouseover="upDate(this)" onmouseleave="unDo()"
+           onfocus="upDate(this)" onblur="unDo()">
+
+    </div>
+  </main>
+
+  <script>
+    var defaultText = "Di chuột qua hoặc nhấn Tab tới một hình bên dưới để hiển thị tại đây.";
+
+    function upDate(previewPic) {
+      console.log("Sự kiện upDate được kích hoạt: " + previewPic.alt);
+      var display = document.getElementById("image");
+      display.style.backgroundImage = "url('" + previewPic.src + "')";
+      display.textContent = previewPic.alt;
+    }
+
+    function unDo() {
+      console.log("Sự kiện unDo được kích hoạt");
+      var display = document.getElementById("image");
+      display.style.backgroundImage = "none";
+      display.textContent = defaultText;
+    }
+
+    function addTabFocus() {
+      console.log("Sự kiện onload được kích hoạt");
+      var images = document.querySelectorAll(".preview");
+      for (var i = 0; i < images.length; i++) {
+        images[i].setAttribute("tabindex", "0");
+        console.log("Đã thêm tabindex cho hình " + (i + 1));
+      }
+    }
+  </script>
+</body>
+</html>
